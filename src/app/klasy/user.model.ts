@@ -7,7 +7,7 @@ export class User{
               private _password: String,
               private _name: String,
               private _surname: String,
-              //private posty: Post[]
+              private _posty: Post[]
   ) {
   }
 
@@ -57,5 +57,13 @@ export class User{
 
   set surname(value: String) {
     this._surname = value;
+  }
+
+  get posty(): Post[] {
+    return this._posty;
+  }
+
+  set posty(value: Post[]) {
+    this._posty = value;
   }
 }
