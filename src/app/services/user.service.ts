@@ -23,8 +23,29 @@ export class UserService {
         false,
         null,
         null,
+        null)]),
+    new User(3,"user2@mail.pl","nick_usera2","user","Imie_usera2","Nazwisko_usera2",[
+      new Post(1,
+        "Ulubione gry us2",
+        "Moimi ulubionymi grami sa lol i cs us2",
+        false,
+        null,
+        null,
+        null),
+      new Post(2,
+        "Ulubione filmy us2",
+        "Moimi ulubionymi filmami sa gwiezdne wojny i Harry Potter us2",
+        false,
+        null,
+        null,
         null)])
   ]
+  deleteUserById(id: number) {
+    const index = this.users.findIndex(user => user.id === id);
+    if (index !== -1 && index!==0) {
+      this.users.splice(index, 1);
+    }
+  }
 
   constructor() { }
 }
