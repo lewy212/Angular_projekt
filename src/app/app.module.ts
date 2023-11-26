@@ -11,6 +11,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import { HomeComponent } from './home/home.component';
 import { UserFormularzComponent } from './user-formularz/user-formularz.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatDialogContent} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogContent,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

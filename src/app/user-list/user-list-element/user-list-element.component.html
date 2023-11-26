@@ -18,9 +18,6 @@
       <li>
         liczba postów: {{user.posty ? user.posty.length : 0 }}
       </li>
-      <li>
-        id(do usuniecia tylko dla testu ustawiania przy dodawaniu): {{user.id}}
-      </li>
     </ul>
     <button mat-raised-button color="warn" *ngIf="user.id===1" disabled (click)="deleteUser()">Delete user</button>
     <button mat-raised-button color="warn"*ngIf="user.id!==1" (click)="deleteUser()">Delete user</button>
