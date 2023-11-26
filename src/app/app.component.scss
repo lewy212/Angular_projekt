@@ -1,8 +1,12 @@
-/* Styl dla h1 */
 h1 {
-  color: #2c3e50; /* Granatowy kolor tekstu */
-  font-size: 32px; /* Większy rozmiar czcionki */
-  margin-bottom: 20px; /* Większy margines na dole */
-  text-align: center; /* Wyśrodkowanie tekstu */
+  color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
 }
-
+.mat-app-background.basic-containter {
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
