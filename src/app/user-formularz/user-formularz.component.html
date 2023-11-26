@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Formualrz</h1>
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <label>Podaj email</label><br>
+    <input type="text" formControlName="email"><br>
+    <label>Podaj nickname</label><br>
+    <input type="text" formControlName="nickname"><br>
+    <label>Podaj password</label><br>
+    <input type="text" formControlName="password"><br>
+    <label>Podaj name</label><br>
+    <input type="text" formControlName="name"><br>
+    <label>Podaj surname</label><br>
+    <input type="text" formControlName="surname"><br>
+
+    <button type="submit" [disabled]=form.invalid>Wyślij</button>
+  </form>
+</div>

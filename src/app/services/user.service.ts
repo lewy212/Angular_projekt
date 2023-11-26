@@ -46,6 +46,10 @@ export class UserService {
       this.users.splice(index, 1);
     }
   }
+  addUser(email,nickname,password,name,surname)
+  {
+    this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null))
+  }
 
   constructor() { }
 }
