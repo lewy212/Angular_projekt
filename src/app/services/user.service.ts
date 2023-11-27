@@ -54,6 +54,7 @@ export class UserService {
   session: any;
   constructor(private router: Router)
   {
+    console.log("odpalilem konstruktor");
     let session: any = localStorage.getItem('session');
     if(session){
       session = JSON.parse(session)
