@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {User} from "../klasy/user.model";
 import {Post} from "../klasy/post.model";
 import {Router} from "@angular/router";
+import {Comment} from "../klasy/comment.model";
 
 @Injectable({
   providedIn: 'root'
@@ -25,21 +26,22 @@ export class UserService {
         null,
         null,
         null)]),
-    new User(3,"user2@mail.pl","nick_usera2","user","Imie_usera2","Nazwisko_usera2",[
+    new User(3,"user2@mail.pl","user2","user2","Imie_usera2","Nazwisko_usera2",[
       new Post(1,
         "Ulubione gry us2",
         "Moimi ulubionymi grami sa lol i cs us2",
         false,
         null,
         null,
-        null),
+        [new Comment("nick_usera2","Pierwszy komentarz ever",false)]),
       new Post(2,
         "Ulubione filmy us2",
         "Moimi ulubionymi filmami sa gwiezdne wojny i Harry Potter us2",
         false,
         null,
         null,
-        null)])
+        null)]),
+    new User(4,"user3@mail.pl","user3","user3","Imie_usera3","Nazwisko_usera3",null)
   ]
   deleteUserById(id: number) {
     const index = this.users.findIndex(user => user.id === id);
@@ -54,7 +56,6 @@ export class UserService {
   session: any;
   constructor(private router: Router)
   {
-    console.log("odpalilem konstruktor");
     let session: any = localStorage.getItem('session');
     if(session){
       session = JSON.parse(session)

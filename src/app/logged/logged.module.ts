@@ -6,13 +6,15 @@ import { LoggedComponent } from './logged.component';
 import {MatButtonModule} from "@angular/material/button";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PostProfileComponent } from './user-profile/post-profile/post-profile.component';
+import { CommentsPostComponent } from './user-profile/post-profile/comments-post/comments-post.component';
 
 
 @NgModule({
   declarations: [
     LoggedComponent,
     UserProfileComponent,
-    PostProfileComponent
+    PostProfileComponent,
+    CommentsPostComponent
   ],
   imports: [
     CommonModule,

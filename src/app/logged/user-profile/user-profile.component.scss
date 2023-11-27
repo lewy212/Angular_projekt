@@ -1,0 +1,29 @@
+/* Styl dla .container */
+.dane {
+  max-width: 400px; /* Maksymalna szerokość kontenera */
+  margin: 20px auto; /* Automatyczne centrowanie kontenera */
+  background-color: #f5f5f5; /* Kolor tła */
+  padding: 20px; /* Wewnętrzny odstęp */
+  border: 1px solid #ddd; /* Ramka wokół kontenera */
+  border-radius: 8px; /* Zaokrąglenie rogów */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Cień */
+}
+
+/* Styl dla h3 */
+.dane h3 {
+  color: #2c3e50; /* Granatowy kolor tekstu */
+  margin-bottom: 10px; /* Margines na dole */
+}
+
+/* Styl dla ul */
+.dane ul {
+  list-style: none; /* Usunięcie domyślnego znacznika listy */
+  padding: 0; /* Usunięcie wewnętrznego odstępu listy */
+}
+
+/* Styl dla li */
+.dane li {
+  margin-bottom: 8px; /* Margines na dole dla każdego elementu listy */
+  color: #333; /* Kolor tekstu */
+}
+
