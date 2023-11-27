@@ -17,6 +17,10 @@ import { LoginComponent } from './login/login.component';
 import {AdminModule} from "./admin/admin.module";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
+import { AboutComponent } from './about/about.component';
+import { PostlistComponent } from './postlist/postlist.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { FooterComponent } from './footer/footer.component';
     UserFormularzComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    PostsComponent,
+    AboutComponent,
+    PostlistComponent
   ],
     imports: [
         BrowserModule,
