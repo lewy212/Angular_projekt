@@ -13,6 +13,16 @@
             <button mat-raised-button color="accent" type="submit" [routerLink]="'/register'">Zarejestruj Się</button>
         </div>
     </div>
-    
+    <div *ngIf="1==1; else notLoggedIn">
+        <ng-container *ngIf="'user' == 'user'">
+          a
+        </ng-container>
+        <ng-container *ngIf="'admin' == 'admin'">
+          b
+        </ng-container>
+      </div>
+      <ng-template #notLoggedIn>
+        c
+      </ng-template>
     
 </header>

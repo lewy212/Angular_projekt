@@ -1,1 +1,11 @@
-<p>profile works!</p>
+<div *ngIf="userSession">
+    <h2>Welcome, {{ userSession.nickname }}!</h2>
+    <p>Email: {{ userSession.email }}</p>
+    <p>Id: {{ userSession.id }}</p>
+    <p>Nazwa: {{ userSession.name }}</p>
+    <!-- Dodaj inne pola, które chcesz wyświetlić -->
+</div>
+
+<div *ngIf="!userSession">
+    <p>Please log in to view your profile.</p>
+</div>
