@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {User} from "../../klasy/user.model";
 
@@ -10,7 +10,10 @@ import {User} from "../../klasy/user.model";
 export class UserProfileComponent {
   user: User;
   constructor(private userService: UserService) {
-    this.user = this.userService.session;
+
+    const userId = this.userService.session._id;
+    const foundUser = this.userService.users.find(user => user.id === userId);
+    this.user = foundUser;
   }
 
 }
