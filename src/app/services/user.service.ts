@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from "../klasy/user.model";
 import {Post} from "../klasy/post.model";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ import {Post} from "../klasy/post.model";
 export class UserService {
 
   users: User[]=[
-    new User(1,"admin@mail.pl","nick_admina","admin","Imie_admina","Nazwisko_admina",null),
-    new User(2,"user@mail.pl","nick_usera","user","Imie_usera","Nazwisko_usera",[
+    new User(1,"admin@mail.pl","admin","admin","Imie_admina","Nazwisko_admina",null),
+    new User(2,"user@mail.pl","user","user","Imie_usera","Nazwisko_usera",[
       new Post(1,
         "Ulubione gry",
         "Moimi ulubionymi grami sa lol i cs",
@@ -50,6 +51,26 @@ export class UserService {
   {
     this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null))
   }
-
-  constructor() { }
+  session: any;
+  constructor(private router: Router)
+  {
+    let session: any = localStorage.getItem('session');
+    if(session){
+      session = JSON.parse(session)
+    }
+    this.session = session;
+  }
+  login(username: string, password: string){
+    let user = this.users.find((u)=>u.nickname===username && u.password===password);
+    if(user){
+      this.session = user;
+      localStorage.setItem('session',JSON.stringify(this.session));
+    }
+    return user;
+  }
+  logout(){
+    this.session = undefined;
+    localStorage.removeItem('session');
+    this.router.navigateByUrl('/');
+  }
 }

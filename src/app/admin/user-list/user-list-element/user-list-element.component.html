@@ -1,5 +1,5 @@
-<div class="container">
-  <h3>{{ user.nickname }}</h3>
+<div class="container" (mouseenter)="zmienWyglad(true)" (mouseleave)="zmienWyglad(false)">
+  <h3 appUserRankDirective [nick]="user.nickname.valueOf()" [czyUstawic]="zmienna.valueOf()" color="red" font="courier">{{ user.nickname }}</h3>
   <div>
   Dane:
     <ul>
@@ -17,9 +17,6 @@
       </li>
       <li>
         liczba postów: {{user.posty ? user.posty.length : 0 }}
-      </li>
-      <li>
-        id(do usuniecia tylko dla testu ustawiania przy dodawaniu): {{user.id}}
       </li>
     </ul>
     <button mat-raised-button color="warn" *ngIf="user.id===1" disabled (click)="deleteUser()">Delete user</button>
