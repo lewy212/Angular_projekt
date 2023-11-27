@@ -9,10 +9,16 @@ import {UserService} from "../../../services/user.service";
 })
 export class UserListElementComponent {
   @Input() public user: User;
+  zmienna: boolean = false;
 
   constructor(private userService: UserService) {
   }
   deleteUser() {
     this.userService.deleteUserById(this.user.id);
+  }
+
+  zmienWyglad(ustaw) {
+    this.zmienna = ustaw;
+    console.log(this.zmienna)
   }
 }

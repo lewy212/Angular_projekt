@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogContent} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
 import { LoginComponent } from './login/login.component';
+import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -24,16 +25,17 @@ import { LoginComponent } from './login/login.component';
     UserFormularzComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    ReactiveFormsModule,
-    MatDialogContent,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatMenuModule,
+        ReactiveFormsModule,
+        MatDialogContent,
+        MatInputModule,
+        AdminModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
