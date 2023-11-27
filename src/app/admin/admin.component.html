@@ -1,1 +1,15 @@
+<header>
+  <!-- Dodaj dodatkowe elementy nagłówka -->
+  <div class = "headertext">
+    <div class="headerleft">
+      <a>Blog</a>
+    </div>
+    <button mat-raised-button color="accent" type="submit" [routerLink]="'/admin/allUsers'">Lista użytkowników</button>
+    <div class="headerright">
+      <button mat-raised-button color="accent"  (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+
+</header>
 <router-outlet></router-outlet>
