@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    Dane:
+    Post
     <ul>
       <li>
         title: {{post.title}}
@@ -13,4 +13,6 @@
       </li>
     </ul>
   </div>
+  Komentarze:
+    <app-comments-post *ngFor="let comment of post.comments" [comment]="comment"></app-comments-post>
 </div>
