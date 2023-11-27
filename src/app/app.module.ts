@@ -18,9 +18,8 @@ import {AdminModule} from "./admin/admin.module";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PostsComponent } from './posts/posts.component';
 import { AboutComponent } from './about/about.component';
-import { PostlistComponent } from './postlist/postlist.component';
+import { PostListComponent } from './postlist/postlist.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +32,8 @@ import { PostlistComponent } from './postlist/postlist.component';
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
-    PostsComponent,
     AboutComponent,
-    PostlistComponent
+    PostListComponent
   ],
     imports: [
         BrowserModule,
