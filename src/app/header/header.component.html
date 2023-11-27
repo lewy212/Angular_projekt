@@ -4,12 +4,15 @@
         <div class="headerleft">
             <a>Blog</a>
         </div>
-        <a routerLink="/home">Home</a>
-        <a routerLink="/about">Posty</a>
-        <a routerLink="/about">Profil</a>
+        <button mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Home</button>
+        <button mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Posty</button>
+        <button mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Profil</button>
         <div class="headerright">
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>
+            <a>Obecnie zalogowano jako:</a>
+            <button mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Zaloguj Się</button>
+            <button mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Zarejestruj Się</button>
         </div>
     </div>
+    
+    
 </header>
