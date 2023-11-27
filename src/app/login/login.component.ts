@@ -25,7 +25,8 @@ export class LoginComponent {
         this.router.navigateByUrl('/admin')
       }
       else {
-        alert('Narazie nie ma logowania dla usera ale dales poprawne dane ;)');
+
+        this.router.navigateByUrl('/logged')
       }
     }
   }

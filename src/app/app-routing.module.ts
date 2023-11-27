@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'admin', loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
     canActivate: [authGuard]
   },
+  {
+    path: 'logged', loadChildren: () =>
+      import('./logged/logged.module').then((m) => m.LoggedModule)
+  },
   { path: 'login', component: LoginComponent },
 
   { path: 'user-formularz', component: UserFormularzComponent },
