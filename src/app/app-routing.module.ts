@@ -8,6 +8,7 @@ import { AboutComponent } from "./about/about.component";
 import { UserFormularzComponent } from "./user-formularz/user-formularz.component";
 import { LoginComponent } from "./login/login.component";
 import { authGuard } from "./auth.guard";
+import {authUserGuard} from "./auth-user.guard";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'logged', loadChildren: () =>
-      import('./logged/logged.module').then((m) => m.LoggedModule)
+      import('./logged/logged.module').then((m) => m.LoggedModule),
+    canActivate: [authUserGuard]
   },
   { path: 'login', component: LoginComponent },
 
