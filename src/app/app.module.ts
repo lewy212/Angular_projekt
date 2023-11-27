@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserListElementComponent } from './user-list/user-list-element/user-list-element.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { UserListElementComponent } from './admin/user-list/user-list-element/user-list-element.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
@@ -13,6 +13,7 @@ import { UserFormularzComponent } from './user-formularz/user-formularz.componen
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogContent} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatInputModule} from "@angular/material/input";
     UserListComponent,
     UserListElementComponent,
     HomeComponent,
-    UserFormularzComponent
+    UserFormularzComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

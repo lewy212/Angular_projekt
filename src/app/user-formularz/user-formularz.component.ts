@@ -51,7 +51,7 @@ export class UserFormularzComponent {
     if (this.form.valid) {
       console.log("dodałem uzytkownika: ",this.form.value)
       this.userService.addUser(this.form.value.email,this.form.value.nickname,this.form.value.password,this.form.value.name,this.form.value.surname)
-      this.router.navigate([`/allUsers`]);
+      this.router.navigate([`/admin/allUsers`]);
     } else {
       console.log("nie udalo sie");
     }
