@@ -1,5 +1,5 @@
-<div class="container" (mouseenter)="zmienWyglad(true)" (mouseleave)="zmienWyglad(false)">
-  <h3 appUserRankDirective [nick]="user.nickname.valueOf()" [czyUstawic]="zmienna.valueOf()" color="red" font="courier">{{ user.nickname }}</h3>
+<div class="container" #pierwszyDiv>
+  <h3 appUserRankDirective [nick]="user.nickname.valueOf()"  [pierwszyDiv]="pierwszyDiv" color="red" font="courier">{{ user.nickname }}</h3>
   <div>
   Dane:
     <ul>

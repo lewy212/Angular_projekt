@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {User} from "../../../klasy/user.model";
 import {UserService} from "../../../services/user.service";
 
@@ -9,16 +9,11 @@ import {UserService} from "../../../services/user.service";
 })
 export class UserListElementComponent {
   @Input() public user: User;
+  @ViewChild('pierwszyDiv') pierwszyDiv: HTMLDivElement;
   zmienna: boolean = false;
-
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,private element: ElementRef) {
   }
   deleteUser() {
     this.userService.deleteUserById(this.user.id);
-  }
-
-  zmienWyglad(ustaw) {
-    this.zmienna = ustaw;
-    console.log(this.zmienna)
   }
 }
