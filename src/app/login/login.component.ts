@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  nowaZawartosc: boolean = false;
   form: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
@@ -24,7 +25,6 @@ export class LoginComponent {
         this.router.navigateByUrl('/admin')
       }
       else {
-
         this.router.navigateByUrl('/logged')
       }
     }

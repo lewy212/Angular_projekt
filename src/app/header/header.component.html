@@ -1,58 +1,44 @@
 <header>
-    <!-- Dodaj dodatkowe elementy nagłówka -->
-
     <div *ngIf="isLoggedIn; else notLoggedIn">
-        
-        <ng-container *ngIf="isAdmin">
-            <div class="headertext">
-                <div class="headerleft">
-                    <a>Blog</a>
-                </div>
-                <button class="but" mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Home</button>
-                <button class="but" mat-raised-button color="accent" type="submit"
-                    [routerLink]="'/postlist'">Posty</button>
-                <button class="but" mat-raised-button color="accent" type="submit"
-                    [routerLink]="'/profile'">Profil</button>
-                <button class="but" mat-raised-button color="accent" type="submit"
-                    [routerLink]="'/profile'">Lista Użytkowników</button>
-                <div class="headerright">
-                    <a>Obecnie zalogowano jako:</a>
-                    <button mat-raised-button color="accent" type="submit" (click)="logout()">Wyloguj Się</button>
-                </div>
-            </div>
-        </ng-container>
-        <ng-container *ngIf="!isAdmin">
-            <div class="headertext">
-                <div class="headerleft">
-                    <a>Blog</a>
-                </div>
-                <button class="but" mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Home</button>
-                <button class="but" mat-raised-button color="accent" type="submit"
-                    [routerLink]="'/postlist'">Posty</button>
-                <button class="but" mat-raised-button color="accent" type="submit"
-                    [routerLink]="'/profile'">Profil</button>
-                <div class="headerright">
-                    <a>Obecnie zalogowano jako:</a>
-                    <button mat-raised-button color="accent" type="submit" (click)="logout()">Wyloguj Się</button>
-                </div>
-            </div>
-
-        </ng-container>
-
+      <div class="headertext" *ngIf="isAdmin; else regularUser">
+        <div class="headerleft">
+          <a>Blog</a>
+        </div>
+        <button class="but" mat-raised-button color="accent" [routerLink]="'/home'">Home</button>
+        <button class="but" mat-raised-button color="accent" [routerLink]="'/postlist'">Posty</button>
+        <button class="but" mat-raised-button color="accent" [routerLink]="'/admin/allUsers'">Profil</button>
+        <button class="but" mat-raised-button color="accent" [routerLink]="'/admin'">Lista Użytkowników</button>
+        <div class="headerright">
+          <a>Obecnie zalogowano jako:</a>
+          <button mat-raised-button color="accent" (click)="logout()">Wyloguj Się</button>
+        </div>
+      </div>
+      <ng-template #regularUser>
+        <div class="headertext">
+          <div class="headerleft">
+            <a>Blog</a>
+          </div>
+          <button class="but" mat-raised-button color="accent" [routerLink]="'/home'">Home</button>
+          <button class="but" mat-raised-button color="accent" [routerLink]="'/postlist'">Posty</button>
+          <button class="but" mat-raised-button color="accent" [routerLink]="'/logged/user-profile'">Profil</button>
+          <div class="headerright">
+            <a>Obecnie zalogowano jako:</a>
+            <button mat-raised-button color="accent" (click)="logout()">Wyloguj Się</button>
+          </div>
+        </div>
+      </ng-template>
     </div>
     <ng-template #notLoggedIn>
-        <div class="headertext">
-            <div class="headerleft">
-                <a>Blog</a>
-            </div>
-            <button class="but" mat-raised-button color="accent" type="submit" [routerLink]="'/home'">Home</button>
-            <div class="headerright">
-                <button mat-raised-button color="accent" type="submit" [routerLink]="'/login'">Zaloguj Się</button>
-                <button mat-raised-button color="accent" type="submit" [routerLink]="'/register'">Zarejestruj Się</button>
-            </div>
+      <div class="headertext">
+        <div class="headerleft">
+          <a>Blog</a>
         </div>
+        <button class="but" mat-raised-button color="accent" [routerLink]="'/home'">Home</button>
+        <div class="headerright">
+          <button mat-raised-button color="accent" [routerLink]="'/login'">Zaloguj Się</button>
+          <button mat-raised-button color="accent" [routerLink]="'/register'">Zarejestruj Się</button>
+        </div>
+      </div>
     </ng-template>
-
-
-
-</header>
+  </header>
+  
