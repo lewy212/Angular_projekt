@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import {AdminModule} from "./admin/admin.module";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { PostListComponent } from './postlist/postlist.component';
 
@@ -31,7 +30,6 @@ import { PostListComponent } from './postlist/postlist.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    ProfileComponent,
     AboutComponent,
     PostListComponent
   ],

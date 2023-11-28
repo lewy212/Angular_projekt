@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "../services/user.service";
 import { Router } from "@angular/router";
-import { SharedService } from "../services/shared.service";
+import { User } from '../klasy/user.model';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,8 @@ import { SharedService } from "../services/shared.service";
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  userSession: User;
+
   form: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
@@ -19,7 +21,6 @@ export class LoginComponent {
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
-    private sharedService: SharedService
   ) {}
 
   login() {
@@ -28,14 +29,12 @@ export class LoginComponent {
       alert('Invalid username or password');
     } else {
       if (user.id === 1) {
-        this.sharedService.updateLoggedIn(true);
-        this.sharedService.updateAdmin(true);
         this.router.navigateByUrl('/admin');
       } else {
-        this.sharedService.updateLoggedIn(true);
-        this.sharedService.updateAdmin(false);
         this.router.navigateByUrl('/logged');
       }
     }
   }
+  
+
 }

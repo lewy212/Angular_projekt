@@ -3,12 +3,14 @@ import {User} from "../klasy/user.model";
 import {Post} from "../klasy/post.model";
 import {Router} from "@angular/router";
 import {Comment} from "../klasy/comment.model";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  private userSessionSubject = new BehaviorSubject<User>(null);
+  userSession$ = this.userSessionSubject.asObservable();
   users: User[]=[
     new User(1,"admin@mail.pl","admin","admin","Imie_admina","Nazwisko_admina",null),
     new User(2,"user@mail.pl","user","user","Imie_usera","Nazwisko_usera",[
@@ -58,9 +60,10 @@ export class UserService {
   {
     let session: any = localStorage.getItem('session');
     if(session){
-      session = JSON.parse(session)
+      session = JSON.parse(session);
     }
     this.session = session;
+    console.log("Sesja w konstruktorze: ", this.session);
   }
   login(username: string, password: string){
     let user = this.users.find((u)=>u.nickname===username && u.password===password);
@@ -68,6 +71,7 @@ export class UserService {
       this.session = user;
       localStorage.setItem('session',JSON.stringify(this.session));
     }
+    console.log("Sesja wloginie: ", this.session);
     return user;
   }
   logout(){
