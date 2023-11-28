@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { PostListComponent } from './postlist/postlist.component';
+import { PasswordSpecialValidatorDirective } from './user-formularz/password-special-validator.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PostListComponent } from './postlist/postlist.component';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    PostListComponent
+    PostListComponent,
+    PasswordSpecialValidatorDirective
   ],
     imports: [
         BrowserModule,
