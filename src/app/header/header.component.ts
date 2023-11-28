@@ -1,50 +1,37 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { SharedService } from "../services/shared.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
 
-  form: FormGroup;
-
-  constructor(private userService: UserService, private fb: FormBuilder) { }
+  constructor(private userService: UserService, private sharedService: SharedService) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+    this.sharedService.nowaZawartosc$.subscribe((value) => {
+      this.isLoggedIn = value;
+      this.updateLoggedInStatus();
     });
-
-    this.updateLoggedInStatus();
   }
 
   private updateLoggedInStatus() {
     const storedSession = localStorage.getItem('session');
     if (storedSession) {
       let user = JSON.parse(storedSession);
-      this.isLoggedIn = true;
-      
-      // Sprawdź, czy użytkownik ma id równy 1
-      if (user.id === 1) {
-        this.isAdmin = true;
-      } else {
-        this.isAdmin = false;
-      }
+      this.isAdmin = user.id === 1;
     } else {
-      this.isLoggedIn = false;
       this.isAdmin = false;
     }
   }
 
   logout() {
     this.userService.logout();
-    this.isLoggedIn = false;
-    this.isAdmin = false;
+    this.sharedService.updateNowaZawartosc(false);
   }
 }
