@@ -1,13 +1,12 @@
 #container {
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  min-width: 300px; /* Dodaj tę linię */
+  max-width: 100%;
+  min-width: 100%; /* Dodaj tę linię */
+  min-height: 80%;
 }
 
 h1 {
@@ -17,8 +16,8 @@ h1 {
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 20px;
+  font-size: 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -27,4 +26,10 @@ button {
   text-decoration: none;
 }
 
+.but {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 20px;
+}
 

@@ -1,4 +1,4 @@
-<div mat-dialog-content>
+<div id = "container">
 
   <form [formGroup]="form" (ngSubmit)="register()">
     <h1>Zarejestruj się</h1>
@@ -35,7 +35,7 @@
       <div *ngIf="fieldBlurred['surname']&&surname.invalid && (surname.dirty || surname.touched)" class="error-message">Surname: min 2, zaczyna się wielką literą</div>
     </mat-form-field><br>
 
-    <button mat-raised-button color="accent" type="submit" [disabled]=form.invalid>Wyślij</button>
+    <button mat-raised-button color="but" type="submit" [disabled]=form.invalid>Wyślij</button>
 
   </form>
 </div>

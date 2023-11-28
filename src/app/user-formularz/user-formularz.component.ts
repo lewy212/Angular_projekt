@@ -14,7 +14,7 @@ export class UserFormularzComponent {
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     //const specialCharacters = ['.', ',', ';', '?', '!', '<', '>', '{', '}', '+', '*', '#', '$', '%','@'];
 
-   // const specialCharacterPattern = specialCharacters.map(char => `.*\\${char}.*`).join('|');
+    //const specialCharacterPattern = specialCharacters.map(char => `.*\\${char}.*`).join('|');
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       nickname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],

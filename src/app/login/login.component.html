@@ -1,5 +1,5 @@
-<div mat-dialog-content class="center-form">
-  <form [formGroup]="form" (ngSubmit)="login()" class="login-form">
+<div id="container">
+  <form [formGroup]="form" (ngSubmit)="login()">
 
     <h1>Zaloguj się</h1>
 
@@ -10,10 +10,11 @@
 
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password" required>
+      <input class= matInput type="password" formControlName="password" required>
     </mat-form-field>
 
-    <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid">Login</button>
+    <button class="but" type="submit" [disabled]="form.invalid">Login</button>
     
   </form>
 </div>
+
