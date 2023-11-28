@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "../services/user.service";
 import { Router } from "@angular/router";
 import { User } from '../klasy/user.model';
+import { CurrentSessionService } from '../services/current-session';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
 
   constructor(
     private userService: UserService,
+    private currentSession: CurrentSessionService,
     private fb: FormBuilder,
     private router: Router,
   ) {}
@@ -28,6 +30,9 @@ export class LoginComponent {
     if (!user) {
       alert('Invalid username or password');
     } else {
+      // Ustaw wartość sesji za pomocą serwisu CurrentSessionService
+      this.currentSession.setUserSession(user);
+
       if (user.id === 1) {
         this.router.navigateByUrl('/admin');
       } else {
@@ -35,6 +40,4 @@ export class LoginComponent {
       }
     }
   }
-  
-
 }
