@@ -5,10 +5,15 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SharedService {
-  private nowaZawartoscSource = new BehaviorSubject<boolean>(false);
-  nowaZawartosc$ = this.nowaZawartoscSource.asObservable();
-
-  updateNowaZawartosc(value: boolean) {
-    this.nowaZawartoscSource.next(value);
+  private valueLoggedIn = new BehaviorSubject<boolean>(false);
+  private valueAdmin = new BehaviorSubject<boolean>(false);
+  newLoggedIn$ = this.valueLoggedIn.asObservable();
+  newAdmin$ = this.valueAdmin.asObservable();
+  
+  updateLoggedIn(value: boolean) {
+    this.valueLoggedIn.next(value);
+  }
+  updateAdmin(value: boolean) {
+    this.valueAdmin.next(value);
   }
 }

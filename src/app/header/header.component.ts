@@ -8,15 +8,20 @@ import { SharedService } from "../services/shared.service";
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = false;
-  isAdmin: boolean = false;
+  isLoggedIn: boolean;
+  isAdmin: boolean;
 
   constructor(private userService: UserService, private sharedService: SharedService) {}
 
   ngOnInit() {
-    this.sharedService.nowaZawartosc$.subscribe((value) => {
+    this.updateLoggedInStatus();
+
+    this.sharedService.newLoggedIn$.subscribe((value) => {
       this.isLoggedIn = value;
-      this.updateLoggedInStatus();
+    });
+
+    this.sharedService.newAdmin$.subscribe((value) => {
+      this.isAdmin = value;
     });
   }
 
@@ -24,14 +29,17 @@ export class HeaderComponent implements OnInit {
     const storedSession = localStorage.getItem('session');
     if (storedSession) {
       let user = JSON.parse(storedSession);
-      this.isAdmin = user.id === 1;
+      this.isLoggedIn = true;  // Użytkownik jest zalogowany
+      this.isAdmin = true;
     } else {
+      this.isLoggedIn = false;  // Brak sesji, użytkownik nie jest zalogowany
       this.isAdmin = false;
     }
   }
 
   logout() {
     this.userService.logout();
-    this.sharedService.updateNowaZawartosc(false);
+    this.sharedService.updateLoggedIn(false);
+    this.sharedService.updateAdmin(false);
   }
 }

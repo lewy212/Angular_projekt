@@ -28,10 +28,12 @@ export class LoginComponent {
       alert('Invalid username or password');
     } else {
       if (user.id === 1) {
-        this.sharedService.updateNowaZawartosc(true);
+        this.sharedService.updateLoggedIn(true);
+        this.sharedService.updateAdmin(true);
         this.router.navigateByUrl('/admin');
       } else {
-        this.sharedService.updateNowaZawartosc(true);
+        this.sharedService.updateLoggedIn(true);
+        this.sharedService.updateAdmin(false);
         this.router.navigateByUrl('/logged');
       }
     }
