@@ -12,13 +12,13 @@ export class UserFormularzComponent {
   form: FormGroup;
   fieldBlurred: { [key: string]: boolean } = {};
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
-    const specialCharacters = ['.', ',', ';', '?', '!', '<', '>', '{', '}', '+', '*', '#', '$', '%','@'];
+    //const specialCharacters = ['.', ',', ';', '?', '!', '<', '>', '{', '}', '+', '*', '#', '$', '%','@'];
 
-    const specialCharacterPattern = specialCharacters.map(char => `.*\\${char}.*`).join('|');
+   // const specialCharacterPattern = specialCharacters.map(char => `.*\\${char}.*`).join('|');
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       nickname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
-      password: ['', [Validators.required, Validators.minLength(4),Validators.pattern(new RegExp(`(${specialCharacterPattern})`))]],
+      password: ['', [Validators.required,Validators.minLength(4)]],
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[A-Z]/),]],
       surname: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[A-Z]/),]]
     })

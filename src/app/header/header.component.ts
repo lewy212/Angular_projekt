@@ -42,9 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   isAdmin(): boolean {
-    console.log("Sesja: ", this.userSession.id);
     return this.userSession.id === 1; // Zwraca true, jeśli użytkownik jest zalogowany i jest administratorem
-
   }
 
   logout() {
