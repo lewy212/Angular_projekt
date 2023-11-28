@@ -4,7 +4,7 @@
   Dane:
     <ul>
       <li>
-        email: {{user.email}}
+        email: {{ user.email.toString() | titlecase }} //dodalem filtr titlecase
       </li>
       <li>
         password:{{user.password}}
