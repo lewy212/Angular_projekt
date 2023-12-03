@@ -11,6 +11,15 @@ export class User{
   ) {
   }
 
+  createPost(title: String, content: String,PostId?: number): void{
+    if(PostId == null){
+      console.log('Brak id przy kreacji posta z metody uzytkownika ./user.model.ts , automatycznie przydzielone id to 9');
+      PostId = 9;
+    }
+    let post = new Post(PostId,title,content,false,null,null,null);
+    this._posty.push(post);
+  }
+
   get id(): number {
     return this._id;
   }

@@ -18,9 +18,11 @@
         liczba postów: {{user.posty ? user.posty.length : 0 }}
       </li>
     </ul>
+
   </div>
 </div>
 <div class="kontener-posty">
   <app-post-profile *ngFor="let post of user.posty" [post]="post"></app-post-profile>
 </div>
+
 

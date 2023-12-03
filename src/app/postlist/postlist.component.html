@@ -1,1 +1,12 @@
 <p>postlist works!</p>
+<p>wersja Indev</p>
+<div *ngFor="let post of postList" class="post-item" (click)="onSelect(post)">
+  <p><span class="pbody">Id: {{post.id}}</span></p>
+  <p><span class="pbody">Tytuł: {{post.title}}</span></p>
+  <p><span class="pbody">Treść: {{post.content}}</span></p>
+  <p><span class="pbody">Edytowane?: {{post.wasEdited}}</span></p>
+  <p><span class="pbody">Liczba like'ów: {{post.liczbaLikow}}</span></p>
+  <p><span class="pbody">Komentarze: {{post.comments}}</span></p>
+</div>
+
+

@@ -11,7 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
   private userSessionSubject = new BehaviorSubject<User>(null);
   userSession$ = this.userSessionSubject.asObservable();
-  users: User[]=[
+
+   users: User[]=[
     new User(1,"admin@mail.pl","admin","admin","Imie_admina","Nazwisko_admina",null),
     new User(2,"user@mail.pl","user","user","Imie_usera","Nazwisko_usera",[
       new Post(1,
@@ -45,6 +46,13 @@ export class UserService {
         null)]),
     new User(4,"user3@mail.pl","user3","user3","Imie_usera3","Nazwisko_usera3",null)
   ]
+
+  //Element potrzeby do listy postów
+  getUserList() {
+    //let user: User[] = this.users;
+    return this.users;
+  }
+
   deleteUserById(id: number) {
     const index = this.users.findIndex(user => user.id === id);
     if (index !== -1 && index!==0) {
@@ -79,4 +87,6 @@ export class UserService {
     localStorage.removeItem('session');
     this.router.navigateByUrl('/');
   }
+
+
 }
