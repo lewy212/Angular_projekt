@@ -17,7 +17,10 @@ export class PostListComponent {
   selectedPost: Post = null;
 
   constructor(private userService: UserService){
+    //dla funkcji nizej i wyzej robisz userList: User[]
+    // this.userList = this.userService.users;
     this.inputUserPost();
+
   } //Aby korzystać z userservice potrzebny jest konstruktor
 
   inputUserPost(){
@@ -30,6 +33,16 @@ export class PostListComponent {
     //NIE UZYWAC POPA USUWA WSZEDZIE
     //cztery posty na razie na stale
   }
+  //jak cos to tez dziala i jest ladniej napisane  + pod projekt z jsa bardziej i tez mozna do kontruktora
+  // inputUserPost() {
+  //   this.userList.forEach((user) => {
+  //     if(user.posty!=null){
+  //       user.posty.forEach((post) => {
+  //         this.postList.push(post);
+  //       });
+  //     }
+  //   });
+  // }
   //ngOnInit(): void{}
 
 
