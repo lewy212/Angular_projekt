@@ -12,8 +12,8 @@ import {UserHttpServiceService} from "./user-http-service.service";
 export class UserService {
   private userSessionSubject = new BehaviorSubject<User>(null);
   userSession$ = this.userSessionSubject.asObservable();
-  users2: User[];
-   users: User[]=[
+  users: User[];// JAK CHCESZ WROCIC NA STATIC to ustawiasz users2 : User[] a nizej users: User[]=[
+   users2: User[]=[
     new User(1,"admin@mail.pl","admin","admin","Imie_admina","Nazwisko_admina",null),
     new User(2,"user@mail.pl","user","user","Imie_usera","Nazwisko_usera",[
       new Post(1,
@@ -70,7 +70,7 @@ export class UserService {
     this.session = this.retrieveSessionFromStorage();
     console.log("Sesja w konstruktorze: ", this.session);
     this.http.getUsers().then(list => {
-      this.users2 = list;
+      this.users = list;// JAK CHCESZ MIEC STATYCZNA TO USTAWIASZ TUTAJ this.users2 = list; i na gorze zmieniasz nazwy
       console.log("ZOBA MATI JAK TO LATA :D v1",this.users2);
       console.log("ZOBA MATI JAK TO LATA :D v2", this.users2[0].id, this.users2[0].nickname)
       // Tutaj możesz bezpiecznie korzystać z this.users2, ponieważ masz pewność, że dane zostały już pobrane
