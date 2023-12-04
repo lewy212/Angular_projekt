@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { PostListComponent } from './postlist/postlist.component';
 import { PasswordSpecialValidatorDirective } from './user-formularz/password-special-validator.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PasswordSpecialValidatorDirective } from './user-formularz/password-spe
         ReactiveFormsModule,
         MatDialogContent,
         MatInputModule,
-        AdminModule
+        AdminModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

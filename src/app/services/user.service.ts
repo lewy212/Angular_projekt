@@ -4,6 +4,7 @@ import {Post} from "../klasy/post.model";
 import {Router} from "@angular/router";
 import {Comment} from "../klasy/comment.model";
 import { BehaviorSubject } from 'rxjs';
+import {UserHttpServiceService} from "../user-http-service.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
   private userSessionSubject = new BehaviorSubject<User>(null);
   userSession$ = this.userSessionSubject.asObservable();
-
+  users2: User[];
    users: User[]=[
     new User(1,"admin@mail.pl","admin","admin","Imie_admina","Nazwisko_admina",null),
     new User(2,"user@mail.pl","user","user","Imie_usera","Nazwisko_usera",[
@@ -64,7 +65,7 @@ export class UserService {
     this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null))
   }
   session: any;
-  constructor(private router: Router)
+  constructor(private router: Router, private http: UserHttpServiceService)
   {
     let session: any = localStorage.getItem('session');
     if(session){
@@ -72,6 +73,12 @@ export class UserService {
     }
     this.session = session;
     console.log("Sesja w konstruktorze: ", this.session);
+    this.http.getUsers().then(list => {
+      this.users2 = list;
+      console.log("ZOBA MATI JAK TO LATA :D v1",this.users2);
+      console.log("ZOBA MATI JAK TO LATA :D v2", this.users2[0].id, this.users2[0].nickname)
+      // Tutaj możesz bezpiecznie korzystać z this.users2, ponieważ masz pewność, że dane zostały już pobrane
+    });
   }
   login(username: string, password: string){
     let user = this.users.find((u)=>u.nickname===username && u.password===password);
