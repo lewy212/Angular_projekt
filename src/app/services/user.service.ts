@@ -4,7 +4,7 @@ import {Post} from "../klasy/post.model";
 import {Router} from "@angular/router";
 import {Comment} from "../klasy/comment.model";
 import { BehaviorSubject } from 'rxjs';
-import {UserHttpServiceService} from "../user-http-service.service";
+import {UserHttpServiceService} from "./user-http-service.service";
 
 @Injectable({
   providedIn: 'root'
@@ -67,11 +67,7 @@ export class UserService {
   session: any;
   constructor(private router: Router, private http: UserHttpServiceService)
   {
-    let session: any = localStorage.getItem('session');
-    if(session){
-      session = JSON.parse(session);
-    }
-    this.session = session;
+    this.session = this.retrieveSessionFromStorage();
     console.log("Sesja w konstruktorze: ", this.session);
     this.http.getUsers().then(list => {
       this.users2 = list;
@@ -80,6 +76,16 @@ export class UserService {
       // Tutaj możesz bezpiecznie korzystać z this.users2, ponieważ masz pewność, że dane zostały już pobrane
     });
   }
+
+  private retrieveSessionFromStorage(): User | null {
+    const session: any = localStorage.getItem('session');
+    return session ? JSON.parse(session) : null;
+  }
+
+  private saveSessionToStorage(usersPom: User[] | null): void {
+    localStorage.setItem('session', JSON.stringify(usersPom));
+  }
+
   login(username: string, password: string){
     let user = this.users.find((u)=>u.nickname===username && u.password===password);
     if(user){
@@ -90,10 +96,9 @@ export class UserService {
     return user;
   }
   logout(){
+    this.retrieveSessionFromStorage();
     this.session = undefined;
     localStorage.removeItem('session');
     this.router.navigateByUrl('/');
   }
-
-
 }

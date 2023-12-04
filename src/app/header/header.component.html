@@ -9,7 +9,7 @@
         <button class="but" mat-raised-button color="accent" [routerLink]="'/home'">Home</button>
         <button class="but" mat-raised-button color="accent" [routerLink]="'/admin/allUsers'">Lista Użytkowników</button>
         <div class="headerright">
-          <a>Obecnie zalogowano jako:</a>
+          <a>Zalogowano jako: {{userSession.nickname}}</a><br>
           <button mat-raised-button color="accent" (click)="logout()">Wyloguj Się</button>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <button class="but" mat-raised-button color="accent" [routerLink]="'/postlist'">Posty</button>
         <button class="but" mat-raised-button color="accent" [routerLink]="'/logged/user-profile'">Profil</button>
         <div class="headerright">
-          <a>Obecnie zalogowano jako:</a>
+          <a>Zalogowano jako: {{userSession.nickname}}</a><br>
           <button mat-raised-button color="accent" (click)="logout()">Wyloguj Się</button>
         </div>
       </div>
