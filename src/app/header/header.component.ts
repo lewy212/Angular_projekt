@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   private loadUserSession() {
     const storedSession = localStorage.getItem('session');
     if (storedSession) {
-      const userId = this.userService.session._id;
+      const userId = JSON.parse(storedSession)._id; // Poprawa pobierania ID zapisanego użytkownika
       const foundUser = this.userService.users.find((user) => user.id === userId);
       this.currentSession.setUserSession(foundUser);
     } else {
@@ -37,10 +37,12 @@ export class HeaderComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
-    return !!this.userSession; // Zwraca true, jeśli użytkownik jest zalogowany
+    this.loadUserSession();
+    return !!this.userSession?.id; // Zwraca true, jeśli użytkownik jest zalogowany
   }
 
   isAdmin(): boolean {
+    this.loadUserSession();
     return this.userSession?.id === 1; // Zwraca true, jeśli użytkownik jest zalogowany i jest administratorem
   }
 
