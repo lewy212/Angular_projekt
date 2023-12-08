@@ -56,6 +56,11 @@
             "_nickname": "nick_usera2",
             "_content": "Pierwszy komentarz ever",
             "_wasEdited": false
+          },
+          {
+            "_nickname": "nick_admina",
+            "_content": "Drugi komentarz ever :)",
+            "_wasEdited": true
           }
         ]
       },

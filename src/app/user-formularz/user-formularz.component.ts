@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
+import { CurrentSessionService } from '../services/current-session';
 
 @Component({
   selector: 'app-user-formularz',

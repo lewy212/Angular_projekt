@@ -10,7 +10,7 @@ import {User} from "../klasy/user.model";
 })
 export class PostListComponent {
 
-  userList: User[] = this.userService.getUserList();
+  userList: User[] = [];
   postList: Post[] = [];
 
   //Lista wszystkich postów od użytkowników po kolei
@@ -18,31 +18,24 @@ export class PostListComponent {
 
   constructor(private userService: UserService){
     //dla funkcji nizej i wyzej robisz userList: User[]
-    // this.userList = this.userService.users;
+
+    this.userList = this.userService.users;
     this.inputUserPost();
 
   } //Aby korzystać z userservice potrzebny jest konstruktor
 
-  inputUserPost(){
-    let tmpPosty: Post[] = this.userList[1].posty;
-    this.postList.push(tmpPosty.at(0));
-    this.postList.push(tmpPosty.at(1));
-    tmpPosty = this.userList[2].posty;
-    this.postList.push(tmpPosty.at(0));
-    this.postList.push(tmpPosty.at(1));
-    //NIE UZYWAC POPA USUWA WSZEDZIE
-    //cztery posty na razie na stale
-  }
+
   //jak cos to tez dziala i jest ladniej napisane  + pod projekt z jsa bardziej i tez mozna do kontruktora
-  // inputUserPost() {
-  //   this.userList.forEach((user) => {
-  //     if(user.posty!=null){
-  //       user.posty.forEach((post) => {
-  //         this.postList.push(post);
-  //       });
-  //     }
-  //   });
-  // }
+  inputUserPost() {
+    this.userList.forEach((user) => {
+      if(user.posty!=null){
+        user.posty.forEach((post) => {
+          this.postList.push(post);
+        });
+      }
+    });
+  }
+
   //ngOnInit(): void{}
 
 

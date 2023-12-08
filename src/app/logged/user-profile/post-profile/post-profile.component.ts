@@ -13,4 +13,6 @@ export class PostProfileComponent {
   constructor(private userService: UserService,private element: ElementRef) {
   }
 
+  
+
 }
