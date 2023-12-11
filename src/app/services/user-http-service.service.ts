@@ -26,6 +26,12 @@ export class UserHttpServiceService {
     };
     return this.http.post<User>(this.url,user,httpOptions).pipe(catchError(this.handleError<User>('addUser')));
   }
+  deleteUserHttp(userId: number): Observable<void> {
+    const url = `${this.url}/${userId}`;
+    return this.http.delete<void>(url).pipe(
+      catchError(this.handleError<void>('deleteUser'))
+    );
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation + ' failed' + error);

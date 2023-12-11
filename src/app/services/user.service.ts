@@ -49,6 +49,16 @@ export class UserService {
     const nowy = new User(this.users.length+1,email,nickname,password,name,surname,null);
     this.http.addUserHttp(nowy).subscribe(ret=>this.users.push(nowy))
   }
+  deleteUserHttp(userId: number): void {
+    this.http.deleteUserHttp(userId).subscribe(() => {
+      const index = this.users.findIndex(user => user.id === userId);
+      if (index !== -1 && index!==0) {
+        console.log("Usuwam: ",this.users.find(user=>user.id === userId))
+        this.users.splice(index, 1);
+        console.log("testuje po usuneiciu: ",this.users.find(user=>user.id === userId))
+      }
+    });
+  }
 
   private retrieveSessionFromStorage(): User | null {
     const session: any = localStorage.getItem('session');

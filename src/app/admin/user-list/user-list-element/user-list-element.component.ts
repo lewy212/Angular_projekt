@@ -14,6 +14,6 @@ export class UserListElementComponent {
   constructor(private userService: UserService,private element: ElementRef) {
   }
   deleteUser() {
-    this.userService.deleteUserById(this.user.id);
+    this.userService.deleteUserHttp(this.user.id);
   }
 }
