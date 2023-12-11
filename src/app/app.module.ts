@@ -21,6 +21,7 @@ import { AboutComponent } from './about/about.component';
 import { PostListComponent } from './postlist/postlist.component';
 import { PasswordSpecialValidatorDirective } from './user-formularz/password-special-validator.directive';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {HttpClientModule} from "@angular/common/http";
         MatDialogContent,
         MatInputModule,
         AdminModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -86,4 +86,24 @@ export class UserService {
     localStorage.removeItem('session');
     this.router.navigateByUrl('/');
   }
+
+  editUserPost(userId: number, editedPost: Post): void {
+    console.log("editUserPostWService");
+    // Znajdź użytkownika na podstawie jego id
+    const userIndex = this.users.findIndex(user => user.id === userId);
+
+    if (userIndex !== -1) {
+      // Znajdź post użytkownika do edycji
+      const postIndex = this.users[userIndex].posty.findIndex(post => post.id === editedPost.id);
+
+      if (postIndex !== -1) {
+        // Usuń poprzedni post użytkownika
+        this.users[userIndex].posty.splice(postIndex, 1);
+
+        // Dodaj nowy edytowany post do listy postów użytkownika
+        this.users[userIndex].posty.push(editedPost);
+      }
+    }
+  }
+
 }

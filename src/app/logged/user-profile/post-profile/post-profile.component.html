@@ -4,20 +4,26 @@
     <ul>
       <li>
         <div class="btn-text-right">
-          <button type="button" class="btn btn-primary">Edytuj post</button>
+          <button (click)="editPost()">Edytuj</button>
         </div>
 
         title: {{post.title}}
       </li>
       <li>
-        content:{{post.content}}
+        content: {{editing ? editedContent : post.content}}
+        <div *ngIf="editing">
+          <textarea [(ngModel)]="editedContent"></textarea>
+        </div>
+        <div class="btn-text-right">
+          <button *ngIf="editing === true" (click)="exitEditingPost()">Anuluj edycje</button>
+        </div>
       </li>
       <li>
-        liczba likow: {{post.liczbaLikow? post.liczbaLikow.length : 0}}
+        liczba lików: {{post.liczbaLikow ? post.liczbaLikow.length : 0}}
       </li>
-
     </ul>
   </div>
   Komentarze:
-    <app-comments-post *ngFor="let comment of post.comments" [comment]="comment"></app-comments-post>
+  <app-comments-post *ngFor="let comment of post.comments" [comment]="comment"></app-comments-post>
 </div>
+

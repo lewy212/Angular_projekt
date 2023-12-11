@@ -73,4 +73,27 @@ export class UserHttpServiceService {
       comment._wasEdited
     );
   }
+
+
+  //todo: costam
+  // editPost(postId: number, updatedPost: Post): Observable<any> {
+  //   const url = `${this.url}/${postId}`;
+  //
+  //   // dane do żądania
+  //   const requestBody = {
+  //     title: updatedPost.title,
+  //     content: updatedPost.content,
+  //     // inne pola do aktualizacji
+  //   };
+  //
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  //     body: requestBody, // Przekaż dane w ciele żądania DELETE
+  //   };
+  //   //żądanie (ale jest w delete także to do zmiany)
+  //   return this.http.delete<void>(url, httpOptions).pipe(
+  //     catchError(this.handleError<void>('editPost'))
+  //   );
+  // }
+
 }

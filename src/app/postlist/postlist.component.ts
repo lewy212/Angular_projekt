@@ -12,7 +12,7 @@ export class PostListComponent {
 
   userList: User[] = [];
   postList: Post[] = [];
-
+  listaZainteresowan: String[];
   //Lista wszystkich postów od użytkowników po kolei
   selectedPost: Post = null;
 
@@ -36,9 +36,10 @@ export class PostListComponent {
     });
   }
 
-  //ngOnInit(): void{}
 
-
+  showPreviousVersions(post: Post): void {
+    console.log("Poprzednie wersje posta:", post.previousEditions);
+  }
 
   onSelect(post: Post): void{
     this.selectedPost = post;
