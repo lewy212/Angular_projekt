@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../klasy/user.model";
 import {Post} from "../klasy/post.model";
 import {Comment} from "../klasy/comment.model";
-import {map, Observable} from "rxjs";
+import {catchError, map, Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,18 @@ export class UserHttpServiceService {
         users.map(user => this.mapUser(user))
       )
     ).toPromise();
+  }
+  addUserHttp(user: User): Observable<User> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
+    return this.http.post<User>(this.url,user,httpOptions).pipe(catchError(this.handleError<User>('addUser')));
+  }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(operation + ' failed' + error);
+      return of(result as T);
+    };
   }
 
   private mapUser(user: any): User {

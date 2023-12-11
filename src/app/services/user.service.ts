@@ -3,8 +3,9 @@ import {User} from "../klasy/user.model";
 import {Post} from "../klasy/post.model";
 import {Router} from "@angular/router";
 import {Comment} from "../klasy/comment.model";
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, catchError, Observable, of} from 'rxjs';
 import {UserHttpServiceService} from "./user-http-service.service";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UserService {
   userSession$ = this.userSessionSubject.asObservable();
   users: User[] = [];
   session: any;
-  
+
 
   //Element potrzeby do listy postów
   getUserList() {
@@ -32,7 +33,8 @@ export class UserService {
   {
     this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null))
   }
-  
+
+
   constructor(private router: Router, private http: UserHttpServiceService) {
     this.session = this.retrieveSessionFromStorage();
     this.userSessionSubject.next(this.session); // Zaktualizuj BehaviorSubject po utworzeniu instancji UserService
@@ -41,6 +43,11 @@ export class UserService {
     this.http.getUsers().then(list => {
       this.users = list;
     });
+  }
+  addUserHttp(email,nickname,password,name,surname)
+  {
+    const nowy = new User(this.users.length+1,email,nickname,password,name,surname,null);
+    this.http.addUserHttp(nowy).subscribe(ret=>this.users.push(nowy))
   }
 
   private retrieveSessionFromStorage(): User | null {
