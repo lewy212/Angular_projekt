@@ -36,7 +36,7 @@ export class PostProfileComponent {
       );
       console.log("userServicehttp" + this.editing)
 
-      this.userService.editUserPost(this.userService.session.id, editedPost);
+      this.userService.editUserPost(this.userService.session._id, editedPost);
       this.editing = false;
 
 

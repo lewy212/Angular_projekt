@@ -87,6 +87,10 @@ export class UserService {
     this.router.navigateByUrl('/');
   }
 
+  addPost(user: User,post: Post){
+   user.posty.push(post);
+  }
+
   editUserPost(userId: number, editedPost: Post): void {
     console.log("editUserPostWService");
     // Znajdź użytkownika na podstawie jego id

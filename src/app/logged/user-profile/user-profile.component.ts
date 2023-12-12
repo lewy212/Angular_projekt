@@ -11,9 +11,10 @@ export class UserProfileComponent {
   user: User;
   constructor(private userService: UserService) {
 
-    const userId = this.userService.session.id;
+    const userId = this.userService.session._id;
     const foundUser = this.userService.users.find(user => user.id === userId);
     this.user = foundUser;
   }
+
 
 }

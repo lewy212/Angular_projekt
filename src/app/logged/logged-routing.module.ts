@@ -5,11 +5,14 @@ import {LandingComponent} from "../public/landing/landing.component";
 import {LoggedComponent} from "./logged.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {authUserGuard} from "../auth-user.guard";
+import {PostProfileComponent} from "./user-profile/post-profile/post-profile.component";
+import {PostFormularzComponent} from "./user-profile/post-formularz/post-formularz.component";
 
 const routes: Routes = [{path: '',component: LoggedComponent,children:[
     { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
     //{path:'',component: LoggedComponent},
-    {path:'user-profile',component: UserProfileComponent,canActivate: [authUserGuard]}
+    {path:'user-profile',component: UserProfileComponent,canActivate: [authUserGuard]},
+    {path:'user-profile/add-post',component: PostFormularzComponent}
   ]}];
 
 @NgModule({

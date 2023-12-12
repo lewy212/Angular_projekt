@@ -11,7 +11,6 @@ export class Post{
               private _previousEditions: Post[],
               private _comments: Comment[],
               ) {
-
   }
 
 

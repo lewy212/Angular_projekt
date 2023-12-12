@@ -7,7 +7,10 @@ import {MatButtonModule} from "@angular/material/button";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PostProfileComponent } from './user-profile/post-profile/post-profile.component';
 import { CommentsPostComponent } from './user-profile/post-profile/comments-post/comments-post.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PostFormularzComponent } from './user-profile/post-formularz/post-formularz.component';
+import {MatInputModule} from "@angular/material/input";
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -15,13 +18,17 @@ import {FormsModule} from "@angular/forms";
     LoggedComponent,
     UserProfileComponent,
     PostProfileComponent,
-    CommentsPostComponent
+    CommentsPostComponent,
+    PostFormularzComponent
   ],
     imports: [
         CommonModule,
         LoggedRoutingModule,
         MatButtonModule,
-        FormsModule
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule
     ]
 })
 export class LoggedModule { }

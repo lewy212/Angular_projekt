@@ -27,8 +27,8 @@ export class UserHttpServiceService {
     return this.http.post<User>(this.url,user,httpOptions).pipe(catchError(this.handleError<User>('addUser')));
   }
   deleteUserHttp(userId: number): Observable<void> {
-    const url = `${this.url}/${userId}`;
-    return this.http.delete<void>(url).pipe(
+    //const url = `${this.url}/${userId}`;
+    return this.http.delete<void>(this.url).pipe(
       catchError(this.handleError<void>('deleteUser'))
     );
   }

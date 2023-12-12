@@ -45,7 +45,7 @@
     "_surname": "Nazwisko_usera2",
     "_posty": [
       {
-        "_id": 1,
+        "_id": 3,
         "_title": "Ulubione gry us2",
         "_content": "Moimi ulubionymi grami sa lol i cs us2",
         "_wasEdited": false,
@@ -65,7 +65,7 @@
         ]
       },
       {
-        "_id": 2,
+        "_id": 4,
         "_title": "Ulubione filmy us2",
         "_content": "Moimi ulubionymi filmami sa gwiezdne wojny i Harry Potter us2",
         "_wasEdited": false,
