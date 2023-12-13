@@ -44,6 +44,21 @@ export class PostListComponent {
   onSelect(post: Post): void{
     this.selectedPost = post;
   }
+  likedPost(idPostu: number): boolean{
+    let czyWyswietlic = true;
+
+    if(this.postList[idPostu-1] && this.postList[idPostu-1].liczbaLikow !== null)
+    {
+      this.postList[idPostu-1].liczbaLikow.forEach(like=>
+      {
+        if(like ===this.userService.session._id)
+        {
+          czyWyswietlic = false;
+        }
+      })
+    }
+    return czyWyswietlic;
+  }
 
   addLike() {
     if (!this.selectedPost.liczbaLikow) {

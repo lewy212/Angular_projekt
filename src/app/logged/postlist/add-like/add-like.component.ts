@@ -7,7 +7,7 @@ import {Post} from "../../../klasy/post.model";
   styleUrl: './add-like.component.scss'
 })
 export class AddLikeComponent {
-  @Input() post: Post
+  @Input() czyWyswielic: boolean;
   @Output() dodajLikePost: EventEmitter<void> = new EventEmitter();
   dodajLike() {
     this.dodajLikePost.emit()

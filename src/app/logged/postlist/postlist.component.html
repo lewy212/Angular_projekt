@@ -16,7 +16,7 @@
     <p><span class="pbody"> <strong>{{comment.nickname}}</strong> {{comment.content}}</span></p>
   </div>
 </div>
-  <app-add-like (dodajLikePost)="addLike()" ></app-add-like>
+  <app-add-like [czyWyswielic]="likedPost(post.id)" (dodajLikePost)="addLike()" ></app-add-like>
 </div>
 
 
