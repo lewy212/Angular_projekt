@@ -22,6 +22,7 @@ import { PostListComponent } from './logged/postlist/postlist.component';
 import { PasswordSpecialValidatorDirective } from './user-formularz/password-special-validator.directive';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {LoggedModule} from "./logged/logged.module";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {FormsModule} from "@angular/forms";
         MatInputModule,
         AdminModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        LoggedModule
     ],
   providers: [],
   bootstrap: [AppComponent]

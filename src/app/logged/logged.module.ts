@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PostFormularzComponent } from './user-profile/post-formularz/post-formularz.component';
 import {MatInputModule} from "@angular/material/input";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { WyszukajPipe } from './wyszukaj.pipe';
 
 
 @NgModule({
@@ -19,16 +20,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     UserProfileComponent,
     PostProfileComponent,
     CommentsPostComponent,
-    PostFormularzComponent
+    PostFormularzComponent,
+    WyszukajPipe
   ],
-    imports: [
-        CommonModule,
-        LoggedRoutingModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatInputModule
-    ]
+  exports: [
+    WyszukajPipe
+  ],
+  imports: [
+    CommonModule,
+    LoggedRoutingModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
+  ]
 })
 export class LoggedModule { }

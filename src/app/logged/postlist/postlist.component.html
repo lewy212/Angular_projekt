@@ -1,7 +1,5 @@
-<p>postlist works!</p>
-<p>wersja Indev</p>
-
-<div *ngFor="let post of postList" class="post-item" (click)="onSelect(post)">
+<input type="text" placeholder="search" [(ngModel)]="searchText">
+<div *ngFor="let post of postList | wyszukaj: searchText" class="post-item" (click)="onSelect(post)" >
 
   <p><span class="pbody">Id: {{post.id}}</span></p>
   <p><span class="pbody">Tytuł: {{post.title}}</span></p>

@@ -9,7 +9,7 @@ import {User} from "../../klasy/user.model";
   styleUrl: './postlist.component.scss'
 })
 export class PostListComponent {
-
+  searchText: string = "";
   userList: User[] = [];
   postList: Post[] = [];
   listaZainteresowan: String[];
