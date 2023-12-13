@@ -43,5 +43,16 @@ export class PostListComponent {
 
   onSelect(post: Post): void{
     this.selectedPost = post;
+    console.log(this.selectedPost.id)
+  }
+
+  addLike() {
+    console.log("XD");
+    console.log(this.userService.session._id)
+    console.log("dodaj like",this.selectedPost)
+    if (!this.selectedPost.liczbaLikow) {
+      this.selectedPost.liczbaLikow = []; // Inicjalizacja, jeśli null
+    }
+    this.selectedPost.liczbaLikow.push(this.userService.session._id);
   }
 }

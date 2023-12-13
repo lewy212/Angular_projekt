@@ -12,6 +12,7 @@ import { PostFormularzComponent } from './user-profile/post-formularz/post-formu
 import {MatInputModule} from "@angular/material/input";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { WyszukajPipe } from './wyszukaj.pipe';
+import { AddLikeComponent } from './postlist/add-like/add-like.component';
 
 
 @NgModule({
@@ -21,10 +22,12 @@ import { WyszukajPipe } from './wyszukaj.pipe';
     PostProfileComponent,
     CommentsPostComponent,
     PostFormularzComponent,
-    WyszukajPipe
+    WyszukajPipe,
+    AddLikeComponent
   ],
   exports: [
-    WyszukajPipe
+    WyszukajPipe,
+    AddLikeComponent
   ],
   imports: [
     CommonModule,

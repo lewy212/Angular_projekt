@@ -1,5 +1,5 @@
 <input type="text" placeholder="search" [(ngModel)]="searchText">
-<div *ngFor="let post of postList | wyszukaj: searchText" class="post-item" (click)="onSelect(post)" >
+<div *ngFor="let post of postList | wyszukaj: searchText" class="post-item" (mouseenter)="onSelect(post)" >
 
   <p><span class="pbody">Id: {{post.id}}</span></p>
   <p><span class="pbody">Tytuł: {{post.title}}</span></p>
@@ -16,7 +16,7 @@
     <p><span class="pbody"> <strong>{{comment.nickname}}</strong> {{comment.content}}</span></p>
   </div>
 </div>
-
+  <app-add-like (dodajLikePost)="addLike()" ></app-add-like>
 </div>
 
 

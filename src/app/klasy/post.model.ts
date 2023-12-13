@@ -7,15 +7,18 @@ export class Post{
               private _title: String,
               private _content: String,
               private _wasEdited: Boolean,
-              private _liczbaLikow: User[],
+              private _liczbaLikow: String[],
               private _previousEditions: Post[],
               private _comments: Comment[],
               ) {
   }
 
 
+  set liczbaLikow(value: String[]) {
+    this._liczbaLikow = value;
+  }
 
- set content(content:String){
+  set content(content:String){
     this._content = content;
  }
 
@@ -43,7 +46,7 @@ export class Post{
     return this._wasEdited;
   }
 
-  get liczbaLikow(): User[] {
+  get liczbaLikow(): String[] {
     return this._liczbaLikow;
   }
 
