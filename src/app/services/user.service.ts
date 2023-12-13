@@ -79,7 +79,13 @@ export class UserService {
     console.log("Sesja w loginie: ", this.session);
     return user;
   }
-
+  findUserById(id: number): User{
+    return this.users.find(user=>user.id ===id);
+  }
+  editUser(id,email,nickname,password,name,surname)
+  {
+    this.users[id-1]= new User(id,email,nickname,password,name,surname,this.users[id-1].posty);
+  }
   logout(){
     this.retrieveSessionFromStorage();
     this.session = undefined;
