@@ -18,7 +18,7 @@ import {AdminModule} from "./admin/admin.module";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { PostListComponent } from './postlist/postlist.component';
+import { PostListComponent } from './logged/postlist/postlist.component';
 import { PasswordSpecialValidatorDirective } from './user-formularz/password-special-validator.directive';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";

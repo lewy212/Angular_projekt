@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Post} from "../klasy/post.model";
-import {UserService} from "../services/user.service";
-import {User} from "../klasy/user.model";
+import {Post} from "../../klasy/post.model";
+import {UserService} from "../../services/user.service";
+import {User} from "../../klasy/user.model";
 
 @Component({
   selector: 'app-postlist',
