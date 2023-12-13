@@ -47,12 +47,25 @@ export class PostListComponent {
   }
 
   addLike() {
-    console.log("XD");
-    console.log(this.userService.session._id)
-    console.log("dodaj like",this.selectedPost)
     if (!this.selectedPost.liczbaLikow) {
       this.selectedPost.liczbaLikow = []; // Inicjalizacja, jeśli null
     }
-    this.selectedPost.liczbaLikow.push(this.userService.session._id);
+    let czyDodac = true;
+    let idLike;
+    this.selectedPost.liczbaLikow.forEach((like, index)=>
+    {
+      if(like ===this.userService.session._id)
+      {
+        czyDodac = false;
+        idLike = index;
+      }
+    })
+    if(czyDodac)
+    {
+      this.selectedPost.liczbaLikow.push(this.userService.session._id);
+    }
+    else {
+      this.selectedPost.liczbaLikow.splice(idLike, 1);
+    }
   }
 }
