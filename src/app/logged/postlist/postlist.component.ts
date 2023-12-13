@@ -43,7 +43,6 @@ export class PostListComponent {
 
   onSelect(post: Post): void{
     this.selectedPost = post;
-    console.log(this.selectedPost.id)
   }
 
   addLike() {
