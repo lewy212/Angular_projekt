@@ -15,6 +15,7 @@
   <div *ngFor="let comment of post.comments">
     <p><span class="pbody"> <strong>{{comment.nickname}}</strong> {{comment.content}}</span></p>
   </div>
+  <app-comment-formularz [post]="post"></app-comment-formularz>
 </div>
   <app-add-like [czyWyswielic]="likedPost(post.id)" (dodajLikePost)="addLike()" ></app-add-like>
 </div>

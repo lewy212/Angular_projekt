@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { WyszukajPipe } from './wyszukaj.pipe';
 import { AddLikeComponent } from './postlist/add-like/add-like.component';
+import { CommentFormularzComponent } from './comment-formularz/comment-formularz.component';
 
 
 @NgModule({
@@ -23,11 +24,14 @@ import { AddLikeComponent } from './postlist/add-like/add-like.component';
     CommentsPostComponent,
     PostFormularzComponent,
     WyszukajPipe,
-    AddLikeComponent
+    AddLikeComponent,
+    CommentFormularzComponent
   ],
   exports: [
     WyszukajPipe,
-    AddLikeComponent
+    AddLikeComponent,
+    CommentsPostComponent,
+    CommentFormularzComponent
   ],
   imports: [
     CommonModule,
