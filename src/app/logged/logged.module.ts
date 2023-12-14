@@ -14,6 +14,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { WyszukajPipe } from './wyszukaj.pipe';
 import { AddLikeComponent } from './postlist/add-like/add-like.component';
 import { CommentFormularzComponent } from './comment-formularz/comment-formularz.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from "@angular/material/icon";
+import { PostMenuComponent } from './postlist/post-menu/post-menu.component';
+import { PostPoIdComponent } from './postlist/post-po-id/post-po-id.component';
 
 
 @NgModule({
@@ -25,13 +29,16 @@ import { CommentFormularzComponent } from './comment-formularz/comment-formularz
     PostFormularzComponent,
     WyszukajPipe,
     AddLikeComponent,
-    CommentFormularzComponent
+    CommentFormularzComponent,
+    PostMenuComponent,
+    PostPoIdComponent
   ],
   exports: [
     WyszukajPipe,
     AddLikeComponent,
     CommentsPostComponent,
-    CommentFormularzComponent
+    CommentFormularzComponent,
+    PostMenuComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +47,9 @@ import { CommentFormularzComponent } from './comment-formularz/comment-formularz
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class LoggedModule { }

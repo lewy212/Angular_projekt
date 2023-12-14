@@ -31,7 +31,7 @@ export class PostProfileComponent {
         this.editedContent,
         true,
         this.post.liczbaLikow,
-        null,
+        [],
         this.post.comments
       );
       console.log("userServicehttp" + this.editing)

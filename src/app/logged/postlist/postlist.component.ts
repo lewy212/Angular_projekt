@@ -12,6 +12,7 @@ export class PostListComponent {
   searchText: string = "";
   userList: User[] = [];
   postList: Post[] = [];
+  menu: any;
   listaZainteresowan: String[];
   //Lista wszystkich postów od użytkowników po kolei
   selectedPost: Post = null;
@@ -82,4 +83,5 @@ export class PostListComponent {
       this.selectedPost.liczbaLikow.splice(idLike, 1);
     }
   }
+
 }

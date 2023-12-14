@@ -107,11 +107,9 @@ export class UserService {
       const postIndex = this.users[userIndex].posty.findIndex(post => post.id === editedPost.id);
 
       if (postIndex !== -1) {
-        // Usuń poprzedni post użytkownika
-        this.users[userIndex].posty.splice(postIndex, 1);
+        editedPost.previousEditions.push( this.users[userIndex].posty[postIndex]);
 
-        // Dodaj nowy edytowany post do listy postów użytkownika
-        this.users[userIndex].posty.push(editedPost);
+        this.users[userIndex].posty[postIndex] = editedPost;
       }
     }
   }

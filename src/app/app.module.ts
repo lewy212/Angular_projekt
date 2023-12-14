@@ -23,6 +23,7 @@ import { PasswordSpecialValidatorDirective } from './user-formularz/password-spe
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {LoggedModule} from "./logged/logged.module";
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import {LoggedModule} from "./logged/logged.module";
         AdminModule,
         HttpClientModule,
         FormsModule,
-        LoggedModule
+        LoggedModule,
+      MatIconModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]
