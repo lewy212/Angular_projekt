@@ -12,6 +12,10 @@
       <li>
         content: {{editing ? editedContent : post.content}}
         <div *ngIf="editing">
+          <textarea [(ngModel)]="editedTitle"></textarea>
+          <tr>
+
+          </tr>
           <textarea [(ngModel)]="editedContent"></textarea>
         </div>
         <div class="btn-text-right">

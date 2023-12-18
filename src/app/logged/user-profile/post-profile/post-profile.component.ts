@@ -13,6 +13,7 @@ export class PostProfileComponent {
   @Input() public post: Post;
   public editing: boolean = false;
   public editedContent: String = "";
+  public editedTitle: String = "";
 
   constructor(private userService: UserService, private element: ElementRef,private userHttpService: UserHttpServiceService) {
   }
@@ -27,7 +28,7 @@ export class PostProfileComponent {
       console.log("ifEditing" + this.editing)
       const editedPost = new Post(
         this.post.id,
-        this.post.title,
+        this.editedTitle,
         this.editedContent,
         true,
         this.post.liczbaLikow,
@@ -59,6 +60,7 @@ export class PostProfileComponent {
       console.log("Warunek else w edycji stan editing ->" + this.editing)
       this.editing = true;
       this.editedContent = this.post.content;
+      this.editedTitle = this.post.title;
     }
   }
 
