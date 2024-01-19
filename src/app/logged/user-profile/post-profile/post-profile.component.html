@@ -4,7 +4,7 @@
     <ul>
       <li>
         <div class="btn-text-right">
-          <button (click)="editPost()">Edytuj</button>
+          <button class="edit-btn" (click)="editPost()">Edytuj</button>
         </div>
 
         title: {{post.title}}
@@ -19,7 +19,7 @@
           <textarea [(ngModel)]="editedContent"></textarea>
         </div>
         <div class="btn-text-right">
-          <button *ngIf="editing === true" (click)="exitEditingPost()">Anuluj edycje</button>
+          <button class="edit-btn cancel-btn" *ngIf="editing === true" (click)="exitEditingPost()">Anuluj edycję</button>
         </div>
       </li>
       <li>

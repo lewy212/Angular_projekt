@@ -12,14 +12,22 @@
         surname: {{user.surname}}
       </li>
       <li>
+        liczba obserwatorów: {{user.liczbaObserwujacych ? user.liczbaObserwujacych.length : 0 }}
+      </li>
+      <li>
+        liczba obserwowanych: {{user.osobyKtoreObserwuje ? user.osobyKtoreObserwuje.length : 0 }}
+      </li>
+      <li>
         liczba postów: {{user.posty ? user.posty.length : 0 }}
       </li>
+
     </ul>
   </div>
 </div>
 
-<div class="button-container">
-  <button class="but" mat-raised-button color="accent" *ngIf="this.id_profilu_usera!=id_wyswietlajacego_profil">Follow</button>
+<div class="button-container" *ngIf="this.id_profilu_usera!=id_wyswietlajacego_profil">
+  <button class="but" mat-raised-button color="primary" *ngIf="this.czyWyswietlic" (click)="dodajFollow()">Follow</button>
+  <button class="but" mat-raised-button color="basic" *ngIf="!this.czyWyswietlic" (click)="dodajFollow()">unFollow</button>
 </div>
 
 <input type="text" placeholder="search" [(ngModel)]="searchText">

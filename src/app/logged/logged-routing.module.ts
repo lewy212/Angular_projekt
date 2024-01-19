@@ -15,9 +15,11 @@ const routes: Routes = [{path: '',component: LoggedComponent,children:[
     { path: '', redirectTo: 'user-profile', pathMatch: 'full' },
     //{path:'',component: LoggedComponent},
     { path: 'postlist', component: PostListComponent },
+    { path: 'postlist/:obserwujacy', component: PostListComponent },
     {path:'user-profile',component: UserProfileComponent,canActivate: [authUserGuard]},
-    { path: 'user-profile/:id',component: UserProfilePoIdComponent,canActivate: [authUserGuard]},
-    {path:'user-profile/add-post',component: PostFormularzComponent}
+    {path:'user-profile/add-post',component: PostFormularzComponent},
+    { path: 'user-profile/:id',component: UserProfilePoIdComponent,canActivate: [authUserGuard]}
+
   ]}];
 
 @NgModule({

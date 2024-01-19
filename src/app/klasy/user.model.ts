@@ -8,6 +8,7 @@ export class User{
               private _name: String,
               private _surname: String,
               private _liczbaObserwujacych: String[],
+              private _osobyKtoreObserwuje: String[],
               private _posty: Post[]
   ) {
   }
@@ -84,5 +85,13 @@ export class User{
 
   set posty(value: Post[]) {
     this._posty = value;
+  }
+
+  get osobyKtoreObserwuje(): String[] {
+    return this._osobyKtoreObserwuje;
+  }
+
+  set osobyKtoreObserwuje(value: String[]) {
+    this._osobyKtoreObserwuje = value;
   }
 }

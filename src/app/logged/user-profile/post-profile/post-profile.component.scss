@@ -30,4 +30,28 @@
 .btn-text-right{
   text-align: right;
 }
+/* Styl dla przycisków Edytuj i Anuluj edycję */
+.container button {
+  background-color: #3498db; /* Kolor tła przycisku */
+  color: #fff; /* Kolor tekstu przycisku */
+  padding: 8px 12px; /* Wewnętrzny odstęp przycisku */
+  border: none; /* Usunięcie obramowania przycisku */
+  border-radius: 4px; /* Zaokrąglenie rogów przycisku */
+  cursor: pointer; /* Efekt kursora na pointer podczas najechania myszką */
+  text-align: right;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Efekt przejścia dla tła i koloru tekstu */
+}
+
+.container button:hover {
+  background-color: #2980b9; /* Kolor tła przycisku po najechaniu myszką */
+}
+
+/* Dodatkowy styl dla przycisku Anuluj edycję */
+.container button.cancel-btn {
+  background-color: #e74c3c; /* Kolor tła przycisku Anuluj edycję */
+}
+
+.container button.cancel-btn:hover {
+  background-color: #c0392b; /* Kolor tła przycisku Anuluj edycję po najechaniu myszką */
+}
 

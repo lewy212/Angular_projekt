@@ -54,3 +54,16 @@ button[mat-icon-button] {
   top: 10px;
   right: 10px;
 }
+/* Dodaj poniższe style dla .profil-span */
+.profil-span {
+  font-size: 1.8em; /* Lub dostosuj odpowiednią wielkość czcionki */
+  cursor: pointer; /* Dodaj efekt kursora na pointer, aby wskazywać na to, że element jest interaktywny */
+  display: inline-block; /* Zapewnia, że element span może mieć ustawienia szerokości i wysokości */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Dodaj styl dla zaznaczonego elementu podczas najechania myszką */
+.profil-span:hover {
+  text-decoration: underline;
+  color: blue
+}

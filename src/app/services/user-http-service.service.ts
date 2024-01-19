@@ -65,6 +65,7 @@ export class UserHttpServiceService {
       user._name,
       user._surname,
       user._liczbaObserwujacych,
+      user._osobyKtoreObserwuje,
       user._posty?.map((post: any) => this.mapPost(post)) || []
     );
   }

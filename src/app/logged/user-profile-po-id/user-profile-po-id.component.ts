@@ -17,7 +17,8 @@ export class UserProfilePoIdComponent {
   id_profilu_usera: number;
   id_wyswietlajacego_profil:number;
   menu: any;
-
+  czyWyswietlic=true;
+  czyPierwszyRaz =true;
   selectedPost: Post = null;
 
   constructor( private userService: UserService, private router: Router,route: ActivatedRoute) {
@@ -30,6 +31,7 @@ export class UserProfilePoIdComponent {
       console.log(this.user);
       this.przypiszPost();
       console.log(this.postList);
+      this.dodajFollow();
   }
   przypiszPost()
   {
@@ -77,6 +79,53 @@ export class UserProfilePoIdComponent {
     else {
       this.selectedPost.liczbaLikow.splice(idLike, 1);
     }
+  }
+  dodajFollow()
+  {
+    console.log(this.czyWyswietlic);
+    let userDodajacy = this.userService.users.find(user => user.id === this.id_wyswietlajacego_profil);
+    if(!userDodajacy.osobyKtoreObserwuje)
+    {
+      userDodajacy.osobyKtoreObserwuje = [];
+    }
+    if(!this.user.liczbaObserwujacych)
+    {
+      this.user.liczbaObserwujacych=[];
+    }
+    let czyDodac = true;
+    let idObserwatora;
+    this.user.liczbaObserwujacych.forEach((obserwujacy,index)=>
+    {
+      if(obserwujacy ===this.userService.session._id)
+      {
+        console.log("WTF");
+        czyDodac=false;
+        this.czyWyswietlic=false;
+        idObserwatora = index;
+      }
+    })
+    if(czyDodac)
+    {
+      if(!this.czyPierwszyRaz)
+      {
+        this.user.liczbaObserwujacych.push(this.userService.session._id);
+        userDodajacy.osobyKtoreObserwuje.push(this.id_profilu_usera.toString());
+        this.czyWyswietlic=false;
+      }
+
+    }
+    else {
+      if(!this.czyPierwszyRaz)
+      {
+        this.user.liczbaObserwujacych.splice(idObserwatora,1);
+        userDodajacy.osobyKtoreObserwuje = userDodajacy.osobyKtoreObserwuje.filter((osoba) => osoba !== this.id_profilu_usera.toString());
+        this.czyWyswietlic=true;
+      }
+
+    }
+    this.czyPierwszyRaz=false;
+    console.log(this.czyPierwszyRaz);
+    console.log(this.czyWyswietlic);
   }
 
 }
