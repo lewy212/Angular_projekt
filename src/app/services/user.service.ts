@@ -59,6 +59,26 @@ export class UserService {
       }
     });
   }
+  editUserHttp(id,email,nickname,password,name,surname){
+    const updatedUser = new User(id, email, nickname, password, name, surname, this.users[id - 1].posty);
+
+    this.http.editUserHttp(id, updatedUser).subscribe(
+      () => {
+        const index = this.users.findIndex(user => user.id === id);
+        if (index !== -1 && index !== 0) {
+          this.users[index] = updatedUser;
+        }
+      },
+      error => {
+        console.error(error.message);
+        // Handle the error as needed
+      }
+    );
+  }
+  editUser(id,email,nickname,password,name,surname)
+  {
+    this.users[id-1]= new User(id,email,nickname,password,name,surname,this.users[id-1].posty);
+  }
 
   private retrieveSessionFromStorage(): User | null {
     const session: any = localStorage.getItem('session');
@@ -82,10 +102,7 @@ export class UserService {
   findUserById(id: number): User{
     return this.users.find(user=>user.id ===id);
   }
-  editUser(id,email,nickname,password,name,surname)
-  {
-    this.users[id-1]= new User(id,email,nickname,password,name,surname,this.users[id-1].posty);
-  }
+
   logout(){
     this.retrieveSessionFromStorage();
     this.session = undefined;

@@ -9,12 +9,13 @@ import {catchError, map, Observable, of} from "rxjs";
   providedIn: 'root'
 })
 export class UserHttpServiceService {
-
-  url = '/assets/dane.json';
+// +'/posts' http://localhost:3000
+//   url = '/assets/dane.json';
+  url = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   getUsers(): Promise<User[]> {
-    return this.http.get<User[]>(this.url).pipe(
+    return this.http.get<User[]>(this.url+'/posts').pipe(
       map((users: any[]) =>
         users.map(user => this.mapUser(user))
       )
@@ -24,14 +25,29 @@ export class UserHttpServiceService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
     };
-    return this.http.post<User>(this.url,user,httpOptions).pipe(catchError(this.handleError<User>('addUser')));
+    return this.http.post<User>(this.url+'/posts',user,httpOptions).pipe(catchError(this.handleError<User>('addUser')));
   }
   deleteUserHttp(userId: number): Observable<void> {
-    //const url = `${this.url}/${userId}`;
-    return this.http.delete<void>(this.url).pipe(
+    return this.http.delete<void>(this.url + '/posts/' + userId).pipe(
       catchError(this.handleError<void>('deleteUser'))
     );
   }
+  editUserHttp(userId: number, user: User): Observable<void> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.put<void>(this.url + '/posts/' + userId, user, httpOptions).pipe(
+      catchError(this.handleError<void>('editUser'))
+    );
+  }
+
+  // editUserHttp(userId: number): Observable<void> {
+  //   return this.http.put<void>(this.url + '/posts/' + userId).pipe(
+  //     catchError(this.handleError<void>('editedUser'))
+  //   );
+  // }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation + ' failed' + error);
@@ -54,6 +70,7 @@ export class UserHttpServiceService {
 
   private mapPost(post: any): Post {
     console.log('Mapped post:', post);
+    console.log(post._id);
     return new Post(
       post._id,
       post._title,

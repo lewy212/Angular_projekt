@@ -69,7 +69,7 @@ export class UserFormularzComponent {
       }
       else
       {
-      this.userService.editUser(this.id_edycji,this.form.value.email,this.form.value.nickname,this.form.value.password,this.form.value.name,this.form.value.surname);
+      this.userService.editUserHttp(this.id_edycji,this.form.value.email,this.form.value.nickname,this.form.value.password,this.form.value.name,this.form.value.surname);
       }
       this.router.navigate([`/admin/allUsers`]);
     } else {
