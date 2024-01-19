@@ -47,7 +47,7 @@ export class PostFormularzComponent {
           });
         }
       });
-      this.userService.addPost(this.userPost,new Post(ustawId,this.form.value.title,this.form.value.content,false,null,null,null))
+      this.userService.addPost(this.userPost,new Post(ustawId,this.userService.session._id,this.form.value.title,this.form.value.content,false,null,null,null))
       this.router.navigate([`/logged/user-profile`]);
     } else {
       console.log("nie udalo sie");

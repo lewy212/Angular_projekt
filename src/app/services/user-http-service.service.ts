@@ -64,6 +64,7 @@ export class UserHttpServiceService {
       user._password,
       user._name,
       user._surname,
+      user._liczbaObserwujacych,
       user._posty?.map((post: any) => this.mapPost(post)) || []
     );
   }
@@ -73,6 +74,7 @@ export class UserHttpServiceService {
     console.log(post._id);
     return new Post(
       post._id,
+      post._idUsera,
       post._title,
       post._content,
       post._wasEdited,

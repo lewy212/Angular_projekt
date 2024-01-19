@@ -4,6 +4,7 @@ import {Comment} from "./comment.model";
 export class Post{
 
   constructor(private _id:number,
+              private _idUsera:number,
               private _title: String,
               private _content: String,
               private _wasEdited: Boolean,
@@ -56,5 +57,13 @@ export class Post{
 
   get comments(): Comment[] {
     return this._comments;
+  }
+
+  get idUsera(): number {
+    return this._idUsera;
+  }
+
+  set idUsera(value: number) {
+    this._idUsera = value;
   }
 }

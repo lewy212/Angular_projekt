@@ -16,6 +16,9 @@
         surname: {{user.surname}}
       </li>
       <li>
+        liczba obserwujacych: {{user.liczbaObserwujacych? user.liczbaObserwujacych.length: 0}}
+      </li>
+      <li>
         liczba postów: {{user.posty ? user.posty.length : 0 }}
       </li>
     </ul>

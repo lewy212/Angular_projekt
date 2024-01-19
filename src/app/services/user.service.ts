@@ -31,7 +31,7 @@ export class UserService {
   }
   addUser(email,nickname,password,name,surname)
   {
-    this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null))
+    this.users.push(new User(this.users.length+1,email,nickname,password,name,surname,null,null))
   }
 
 
@@ -46,7 +46,7 @@ export class UserService {
   }
   addUserHttp(email,nickname,password,name,surname)
   {
-    const nowy = new User(this.users.length+1,email,nickname,password,name,surname,null);
+    const nowy = new User(this.users.length+1,email,nickname,password,name,surname,null,null);
     this.http.addUserHttp(nowy).subscribe(ret=>this.users.push(nowy))
   }
   deleteUserHttp(userId: number): void {
@@ -60,7 +60,7 @@ export class UserService {
     });
   }
   editUserHttp(id,email,nickname,password,name,surname){
-    const updatedUser = new User(id, email, nickname, password, name, surname, this.users[id - 1].posty);
+    const updatedUser = new User(id, email, nickname, password, name, surname,this.users[id - 1].liczbaObserwujacych ,this.users[id - 1].posty);
 
     this.http.editUserHttp(id, updatedUser).subscribe(
       () => {
@@ -77,7 +77,7 @@ export class UserService {
   }
   editUser(id,email,nickname,password,name,surname)
   {
-    this.users[id-1]= new User(id,email,nickname,password,name,surname,this.users[id-1].posty);
+    this.users[id-1]= new User(id,email,nickname,password,name,surname,this.users[id-1].liczbaObserwujacych,this.users[id-1].posty);
   }
 
   private retrieveSessionFromStorage(): User | null {

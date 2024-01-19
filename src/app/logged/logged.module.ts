@@ -18,6 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from "@angular/material/icon";
 import { PostMenuComponent } from './postlist/post-menu/post-menu.component';
 import { PostPoIdComponent } from './postlist/post-po-id/post-po-id.component';
+import { UserProfilePoIdComponent } from './user-profile-po-id/user-profile-po-id.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PostPoIdComponent } from './postlist/post-po-id/post-po-id.component';
     AddLikeComponent,
     CommentFormularzComponent,
     PostMenuComponent,
-    PostPoIdComponent
+    PostPoIdComponent,
+    UserProfilePoIdComponent
   ],
   exports: [
     WyszukajPipe,

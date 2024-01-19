@@ -28,6 +28,7 @@ export class PostProfileComponent {
       console.log("ifEditing" + this.editing)
       const editedPost = new Post(
         this.post.id,
+        this.post.idUsera,
         this.editedTitle,
         this.editedContent,
         true,

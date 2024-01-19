@@ -2,6 +2,7 @@
   <input type="text" placeholder="search" [(ngModel)]="searchText">
   <div *ngFor="let post of postList | wyszukaj: searchText" class="post-item" (mouseenter)="onSelect(post)">
     <div class="post-header">
+      <p><span class="pbody" (click)="wyswietlProfil(post)">id Uzytkownika: {{znajdzUsera(post.idUsera)}}</span></p>
       <p><span class="pbody">Tytuł: {{post.title}}</span></p>
       <p><span class="pbody">Treść: {{post.content}}</span></p>
 

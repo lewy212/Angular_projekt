@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Post} from "../../klasy/post.model";
 import {UserService} from "../../services/user.service";
 import {User} from "../../klasy/user.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-postlist',
@@ -17,7 +18,7 @@ export class PostListComponent {
   //Lista wszystkich postów od użytkowników po kolei
   selectedPost: Post = null;
 
-  constructor(private userService: UserService){
+  constructor(private userService: UserService,private router: Router){
     //dla funkcji nizej i wyzej robisz userList: User[]
 
     this.userList = this.userService.users;
@@ -45,6 +46,11 @@ export class PostListComponent {
   onSelect(post: Post): void{
     this.selectedPost = post;
   }
+  wyswietlProfil(post: Post)
+  {
+    console.log(post.idUsera);
+    this.router.navigate([`user-profile`,post.idUsera]);
+  }
   likedPost(idPostu: number): boolean{
     let czyWyswietlic = true;
 
@@ -59,6 +65,11 @@ export class PostListComponent {
       })
     }
     return czyWyswietlic;
+  }
+
+  znajdzUsera(userId:number): String{
+    const foundUser = this.userService.users.find(user => user.id === userId);
+    return foundUser.nickname;
   }
 
   addLike() {

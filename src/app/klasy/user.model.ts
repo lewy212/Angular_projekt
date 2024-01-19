@@ -7,6 +7,7 @@ export class User{
               private _password: String,
               private _name: String,
               private _surname: String,
+              private _liczbaObserwujacych: String[],
               private _posty: Post[]
   ) {
   }
@@ -16,7 +17,7 @@ export class User{
       console.log('Brak id przy kreacji posta z metody uzytkownika ./user.model.ts , automatycznie przydzielone id to 9');
       PostId = 9;
     }
-    let post = new Post(PostId,title,content,false,null,null,null);
+    let post = new Post(PostId,2,title,content,false,null,null,null);
     this._posty.push(post);
   }
 
@@ -70,6 +71,15 @@ export class User{
 
   get posty(): Post[] {
     return this._posty;
+  }
+
+
+  get liczbaObserwujacych(): String[] {
+    return this._liczbaObserwujacych;
+  }
+
+  set liczbaObserwujacych(value: String[]) {
+    this._liczbaObserwujacych = value;
   }
 
   set posty(value: Post[]) {
